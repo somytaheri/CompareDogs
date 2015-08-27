@@ -1,0 +1,16 @@
+<section class="well">
+    <div ng-model="dogs">
+        <div class="text-center">
+            <a href="#/details/{{prevItem}}" class="btn btn-default btn-sm glyphicon glyphicon-chevron-left"></a>
+            <a href="#/details/{{nextItem}}" class="btn btn-default btn-sm glyphicon glyphicon-chevron-right"></a>
+        </div>
+
+
+        <img ng-src="img/{{dogs[whichItem].reknown}}.jpg" alt="Photo of {{item.breed}}" class="img-thumbnail img-responsive center-block">
+
+        <h2>{{dogs[whichItem].breed }}</h2>
+        <p>{{dogs[whichItem].details }}</p>
+    </div>
+
+    <a href="/#/list" class="btn btn-default btn-lg">back to list</a>
+</section>

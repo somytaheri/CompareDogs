@@ -1,0 +1,124 @@
+<section class="">
+    <form class="form-inline text-center form__wrapper well">
+        <div class="input-group">
+            <div class="input-group-addon glyphicon glyphicon-search"></div>
+            <input type="text" class="form-control" placeholder="Search" ng-model="query.breed">
+        </div>
+
+        <select class="form-control" ng-model="orderProp">
+            <option value="breed">Breed</option>
+            <option value="training">Ease of Training</option>
+            <option value="Intelligence">Intelligence</option>
+            <option value="shedding">shedding</option>
+            <option value="watchdog">watchdog</option>
+            <option value="guard">guard</option>
+            <option value="popularity">popularity</option>
+            <option value="size">size</option>
+            <option value="agility">agility</option>
+            <option value="Good With kids">Good With kids</option>
+        </select>
+        <select class="form-control" ng-model="direction">
+            <option value="">Ascending</option>
+            <option value="reverse">Descending</option>
+        </select>
+    </form>
+
+    <ul class="list-group unstyled">
+
+        <li ng-repeat="item in dogs | filter: query | orderBy: orderProp: direction"
+            class="list-group-item center-block list__group">
+            <a href="#/details/{{dogs.indexOf(item)}}" class="">
+                <div class="item__wrapper center-block">
+                    <img ng-src="img/{{item.reknown}}.jpg" alt="Photo of {{item.breed}}"
+                         class="img-thumbnail img-responsive item__img">
+
+                    <h2 class="item__breed text-center">{{item.breed}}</h2>
+                </div>
+
+
+                <p class="text-center">Intelligence</p>
+
+                <div class="progress">
+                    <div class="progress-bar progress-bar-striped progress-bar-info active" role="progressbar"
+                         aria-valuenow="{{ item.intelligence }}" aria-valuemin="0" aria-valuemax="10"
+                         ng-style="{width : (item.intelligence *10 + '%' ) }">
+                        <span class="">{{ item.intelligence }}/10</span>
+                    </div>
+                </div>
+
+                <p class="text-center">shedding</p>
+
+                <div class="progress">
+                    <div class="progress-bar progress-bar-striped progress-bar-info active" role="progressbar"
+                         aria-valuenow="{{ item.shedding }}" aria-valuemin="0" aria-valuemax="10"
+                         ng-style="{width : (item.shedding *10 + '%' ) }">
+                        <span class="">{{ item.shedding }}/10</span>
+                    </div>
+                </div>
+
+                <p class="text-center">watchdog</p>
+
+                <div class="progress">
+                    <div class="progress-bar progress-bar-striped progress-bar-info active" role="progressbar"
+                         aria-valuenow=" {{ item.watchdog }}" aria-valuemin="0" aria-valuemax="10"
+                         ng-style="{width : (item.watchdog *10 + '%' ) }">
+                        <span class="">{{ item.watchdog }}/10</span>
+                    </div>
+                </div>
+
+                <p class="text-center">guard</p>
+
+                <div class="progress">
+                    <div class="progress-bar progress-bar-striped progress-bar-info active" role="progressbar"
+                         aria-valuenow="{{ item.guard }}" aria-valuemin="0" aria-valuemax="10"
+                         ng-style="{width : (item.guard *10 + '%' ) }">
+                        <span class="">{{ item.guard }}/10</span>
+                    </div>
+                </div>
+
+                <p class="text-center">popularity</p>
+
+                <div class="progress">
+                    <div class="progress-bar progress-bar-striped progress-bar-info active" role="progressbar"
+                         aria-valuenow="{{ item.popularity }}" aria-valuemin="0" aria-valuemax="10"
+                         ng-style="{width : (item.popularity *10 + '%' ) }">
+                        <span class="">{{ item.popularity }}/10</span>
+                    </div>
+                </div>
+
+                <p class="text-center">size</p>
+
+                <div class="progress">
+                    <div class="progress-bar progress-bar-striped progress-bar-info active" role="progressbar"
+                         aria-valuenow="{{ item.size }}" aria-valuemin="0" aria-valuemax="10"
+                         ng-style="{width : (item.size *10 + '%' ) }">
+                        <span class="">{{ item.size }}/10</span>
+                    </div>
+                </div>
+
+                <p class="text-center">agility</p>
+
+                <div class="progress">
+                    <div class="progress-bar progress-bar-striped progress-bar-info active" role="progressbar"
+                         aria-valuenow="{{ item.agility }}" aria-valuemin="0" aria-valuemax="10"
+                         ng-style="{width : (item.agility *10 + '%' ) }">
+                        <span class="">{{ item.agility }}/10</span>
+                    </div>
+                </div>
+
+                <p class="text-center">Good With kids</p>
+
+                <div class="progress">
+                    <div class="progress-bar progress-bar-striped progress-bar-info active" role="progressbar"
+                         aria-valuenow="{{ item.kids }}" aria-valuemin="0" aria-valuemax="10"
+                         ng-style="{width : (item.kids *10 + '%' ) }">
+                        <span class="">{{ item.kids }}/10</span>
+                    </div>
+                </div>
+            </a>
+        </li>
+
+    </ul>
+
+</section>
+
